@@ -30,7 +30,7 @@ inputs:
     description: "Default ECS cluster ARN.  If not defined then cluster named `default' will be used."
     default: ""
   subnets:
-    default: []
+    default: '[]'
   environment:
     description: "Environment variables to pass to container at launch."
     default: "{}"
@@ -49,8 +49,6 @@ inputs:
   debug:
     description: 'enable debugging'
     default: false
-
-outputs:
 
 runs:
   using: docker
