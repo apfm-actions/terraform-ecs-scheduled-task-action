@@ -9,7 +9,7 @@ inputs:
   task_role_arn:
     description: "Role that provides the security context that the container actually runs in."
     default: ""
-  cloudwatch_rule:
+  schedule:
     description: "Cron or scheduled rule to use for the scheduled task"
   cloudwatch_log_group:
     description: "CloudWatch Log Group for ECS Scheduled Task. If not defined, name is used instead."
