@@ -1,0 +1,57 @@
+name: ECS Scheduled Task
+description: Schedule an ECS Task
+inputs:
+  name:
+    description: "Name value to use for task related objects"
+  exec_role_arn:
+    description: "Role to pull the container and push logs to CW. This is required for the FARGATE launch type, optional for EC2"
+    default: ""
+  task_role_arn:
+    description: "Role that provides the security context that the container actually runs in."
+    default: ""
+  cloudwatch_rule:
+    description: "Cron or scheduled rule to use for the scheduled task"
+  cloudwatch_log_group:
+    description: "CloudWatch Log Group for ECS Scheduled Task. If not defined, name is used instead."
+  region:
+    default: "us-west-2"
+  image:
+    description: "Container image to pull"
+  cpu:
+    description: "Fargate CPU time allocation"
+    default: 256
+  memory:
+    description: "Fargate Memory size allication"
+    default: 512
+  command:
+    description: "Override default container command."
+    default: ""
+  cluster_arn:
+    description: "Default ECS cluster ARN.  If not defined then cluster named `default' will be used."
+    default: ""
+  subnets:
+    default: []
+  environment:
+    description: "Environment variables to pass to container at launch."
+    default: "{}"
+  secrets:
+    description: "Environment variables to set from the secrets store at launch."
+    default: "{}"
+  plan:
+    description: 'Perform a Terraform Plan'
+    default: true
+  deploy:
+    description: 'Perform Terraform Apply'
+    default: true
+  destroy:
+    description: 'Perform Terraform Destroy'
+    default: false
+  debug:
+    description: 'enable debugging'
+    default: false
+
+outputs:
+
+runs:
+  using: docker
+  image: Dockerfile
