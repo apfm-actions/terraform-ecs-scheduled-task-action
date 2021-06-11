@@ -26,6 +26,7 @@ module "scheduled_task" {
   cpu                  = var.cpu
   memory               = var.cpu
   command              = var.command
+  schedule             = var.schedule
   task_role_arn        = var.task_role_arn
   exec_role_arn        = var.exec_role_arn
   cloudwatch_log_group = var.cloudwatch_log_group
