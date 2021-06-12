@@ -12,7 +12,7 @@ locals {
 
   exec_role_arn = var.cluster_execution_role_arn
   cluster_arn   = var.cluster_arn != "" ? var.cluster_arn : var.cluster_id
-  subnet        = var.subnet != "" ? var.subnet : var.cluster_private_subnets
+  subnets       = var.subnet != "" ? var.subnets : var.cluster_private_subnets
 
   environ = merge(var.environment, { environment = terraform.workspace })
 }
