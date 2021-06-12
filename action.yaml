@@ -33,7 +33,8 @@ inputs:
     description: "Default ECS cluster ARN.  If not defined then cluster named `default' will be used."
     default: ""
   subnets:
-    default: '[]'
+    description: "Comma separated list of subnets to deploy the task to"
+    default: ""
   policies:
     description: "Comma separated list of IAM policies to attach to the task"
     default: ""
