@@ -34,6 +34,9 @@ inputs:
     default: ""
   subnets:
     default: '[]'
+  policies:
+    description: "Comma separated list of IAM policies to attach to the task"
+    default: ""
   environment:
     description: "Environment variables to pass to container at launch."
     default: "{}"
