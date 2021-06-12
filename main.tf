@@ -14,8 +14,7 @@ locals {
   cluster_arn   = var.cluster_arn != "" ? var.cluster_arn : var.cluster_id
   subnet        = var.subnet != "" ? var.subnet : var.cluster_private_subnets
 
-  default_env = { environment = terraform.workspace }
-  environment = merge(local.default_env, var.environment)
+  environ = merge(var.environment, { environment = terraform.workspace })
 }
 
 module "scheduled_task" {
