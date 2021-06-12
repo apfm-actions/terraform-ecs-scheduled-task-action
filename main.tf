@@ -10,7 +10,7 @@ locals {
   image      = var.image != "" ? var.image : "${local.ecr_repo}/${var.github_project}:${local.label}"
   policies   = var.policies != "" ? split(",", var.policies) : []
 
-  exec_role_arn = var.cluster_execution_role_arn
+  exec_role_arn = var.exec_role_arn != "" ? var.exec_role_arn : var.cluster_execution_role_arn
   cluster_arn   = var.cluster_arn != "" ? var.cluster_arn : var.cluster_id
   subnets       = var.subnets != "" ? var.subnets : var.cluster_private_subnets
 
@@ -29,7 +29,7 @@ module "scheduled_task" {
   command              = var.command
   schedule             = var.schedule
   task_role_arn        = var.task_role_arn
-  exec_role_arn        = var.exec_role_arn
+  exec_role_arn        = local.exec_role_arn
   cloudwatch_log_group = var.cloudwatch_log_group
   subnets              = split(",", local.subnets)
   environment          = local.environ
