@@ -32,6 +32,6 @@ module "scheduled_task" {
   exec_role_arn        = var.exec_role_arn
   cloudwatch_log_group = var.cloudwatch_log_group
   subnets              = split(",", local.subnets)
-  environment          = local.environment
+  environment          = local.environ
   secrets              = var.secrets
 }
