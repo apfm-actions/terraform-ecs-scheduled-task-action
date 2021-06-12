@@ -6,14 +6,16 @@ locals {
   account_id = "${data.aws_caller_identity.current.account_id}"
   region     = "${data.aws_region.current.name}"
   ecr_repo   = "${local.account_id}.dkr.ecr.${local.region}.amazonaws.com"
-  image      = var.image != "" ? var.image : "${local.ecr_repo}/${var.github_project}"
+  label      = var.label != "" ? var.label : "latest"
+  image      = var.image != "" ? var.image : "${local.ecr_repo}/${var.github_project}:${local.label}"
   policies   = var.policies != "" ? split(",", var.policies) : []
 
   exec_role_arn = var.cluster_execution_role_arn
   cluster_arn   = var.cluster_arn != "" ? var.cluster_arn : var.cluster_id
   subnet        = var.subnet != "" ? var.subnet : var.cluster_private_subnets
 
-  environment = merge({ environment = terraform.workspace }, var.environment)
+  default_env = { environment = terraform.workspace }
+  environment = merge(local.default_env, var.environment)
 }
 
 module "scheduled_task" {
@@ -24,7 +26,7 @@ module "scheduled_task" {
   region               = local.region
   cluster_arn          = local.cluster_arn
   cpu                  = var.cpu
-  memory               = var.cpu
+  memory               = var.memory
   command              = var.command
   schedule             = var.schedule
   task_role_arn        = var.task_role_arn

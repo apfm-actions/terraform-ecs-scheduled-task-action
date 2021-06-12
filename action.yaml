@@ -17,6 +17,9 @@ inputs:
     default: "us-west-2"
   image:
     description: "Container image to pull"
+  label:
+    description: "Container label to pull"
+    default: "latest"
   cpu:
     description: "Fargate CPU time allocation"
     default: 256
