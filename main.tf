@@ -20,18 +20,18 @@ locals {
 module "scheduled_task" {
   source = "github.com/aplaceformom/terraform-ecs-scheduled-task"
 
-  name                 = local.name
-  image                = local.image
-  region               = local.region
-  cluster_arn          = local.cluster_arn
-  cpu                  = var.cpu
-  memory               = var.memory
-  command              = var.command
-  schedule             = var.schedule
-  task_role_arn        = var.task_role_arn
-  exec_role_arn        = local.exec_role_arn
-  cloudwatch_log_group = var.cloudwatch_log_group
-  subnets              = split(",", local.subnets)
-  environment          = local.environ
-  secrets              = var.secrets
+  name          = local.name
+  image         = local.image
+  region        = local.region
+  cluster_arn   = local.cluster_arn
+  cpu           = var.cpu
+  memory        = var.memory
+  command       = var.command
+  schedule      = var.schedule
+  task_role_arn = var.task_role_arn
+  exec_role_arn = local.exec_role_arn
+  log_group     = var.log_group
+  subnets       = split(",", local.subnets)
+  environment   = local.environ
+  secrets       = var.secrets
 }
