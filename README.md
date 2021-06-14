@@ -27,7 +27,7 @@ Schedule an ECS task in CloudWatch using Terraform
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cloudwatch_log_group"></a> [cloudwatch\_log\_group](#input\_cloudwatch\_log\_group) | CloudWatch Log Group for ECS Scheduled Task. If not defined, name is used instead | `string` | n/a | yes |
+| <a name="input_log_group"></a> [cloudwatch\_log\_group](#input\_cloudwatch\_log\_group) | CloudWatch Log Group for ECS Scheduled Task. If not defined, name is used instead | `string` | n/a | yes |
 | <a name="input_schedule"></a> [cloudwatch\_rule](#input\_cloudwatch\_rule) | Schedule for the task in cron format | `string` | n/a | yes |
 | <a name="input_cluster_arn"></a> [cluster\_arn](#input\_cluster\_arn) | Default ECS cluster ARN  If not defined then cluster named `default' will be used.` | `string` | `""` | no |
 | <a name="input_command"></a> [command](#input\_command) | Use specific command when launching the task.  If omitted the default Docker CMD registered in the Dockerfile will be used. | `string` | `""` | no |
