@@ -44,6 +44,9 @@ inputs:
   secrets:
     description: "Environment variables to set from the secrets store at launch."
     default: "{}"
+  sidecars:
+    description: "Specify docker sidecars to run along-side the primary image.  E.g. { sidecar1 = image1, sidecar2 = image2 }"
+    default: "{}"
   plan:
     description: 'Perform a Terraform Plan'
     default: true

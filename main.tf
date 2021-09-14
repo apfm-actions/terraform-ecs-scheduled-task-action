@@ -34,4 +34,5 @@ module "scheduled_task" {
   subnets       = split(",", local.subnets)
   environment   = local.environ
   secrets       = var.secrets
+  sidecars      = var.sidecars
 }
