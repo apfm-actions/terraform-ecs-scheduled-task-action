@@ -18,7 +18,7 @@ locals {
 }
 
 module "scheduled_task" {
-  source = "github.com/aplaceformom/terraform-ecs-scheduled-task"
+  source = "github.com/aplaceformom/terraform-ecs-scheduled-task?ref=sidecar"
 
   name          = local.name
   image         = local.image
